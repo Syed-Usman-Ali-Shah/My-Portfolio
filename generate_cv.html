@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Usman Shah - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cv-page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            background: white;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .header .title {
+            font-size: 18px;
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* Profile */
+        .profile-text {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+
+        /* Education */
+        .edu-item {
+            margin-bottom: 15px;
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .edu-degree {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .edu-year {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .edu-school {
+            font-size: 13px;
+            color: #3b82f6;
+            margin-bottom: 3px;
+        }
+
+        .edu-gpa {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-category {
+            margin-bottom: 10px;
+        }
+
+        .skill-category h4 {
+            font-size: 14px;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            background: #e8f0fe;
+            color: #1a73e8;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 18px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .project-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .project-tech {
+            font-size: 11px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .project-desc {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        .project-features {
+            font-size: 11px;
+            color: #666;
+            padding-left: 15px;
+        }
+
+        .project-features li {
+            margin-bottom: 3px;
+        }
+
+        /* Experience */
+        .exp-item {
+            margin-bottom: 18px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .exp-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .exp-date {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .exp-company {
+            font-size: 13px;
+            color: #3b82f6;
+            margin-bottom: 5px;
+        }
+
+        .exp-desc {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+            }
+
+            .cv-page {
+                margin: 0;
+                padding: 15mm;
+            }
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+
+        @media print {
+            .download-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="download-btn" onclick="window.print()">📄 Download PDF</button>
+
+    <div class="cv-container">
+        <div class="cv-page">
+            <!-- Header -->
+            <div class="header">
+                <img src="profile.jpg" alt="Syed Usman Shah"
+                    style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <h1>SYED USMAN SHAH</h1>
+                <div class="title">Computer Science Student & Software Developer</div>
+                <div class="contact-info">
+                    <span>📧 syedusmanshah055@gmail.com</span>
+                    <span>📍 Islamabad, Pakistan</span>
+                    <span>🔗 github.com/Syed-Usman-Ali-Shah</span>
+                    <span>💼 linkedin.com/in/syed-usman-ali-shah-497129361</span>
+                </div>
+            </div>
+
+            <!-- Profile -->
+            <div class="section">
+                <h2 class="section-title">PROFILE</h2>
+                <p class="profile-text">
+                    Passionate Computer Science student with a strong foundation in software development and
+                    problem-solving.
+                    Experienced in building web applications using modern technologies and developing efficient
+                    algorithms with C++ and C.
+                    Committed to writing clean, maintainable code and continuously learning new technologies.
+                    Seeking opportunities to apply my skills in real-world projects and contribute to innovative
+                    solutions.
+                </p>
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <h2 class="section-title">EDUCATION</h2>
+                <div class="edu-item">
+                    <div class="edu-header">
+                        <div class="edu-degree">Bachelor of Science in Computer Science</div>
+                        <div class="edu-year">2023 - Present</div>
+                    </div>
+                    <div class="edu-school">FAST National University, Islamabad</div>
+                    <div class="edu-gpa">CGPA: 2.7/4.0</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-header">
+                        <div class="edu-degree">Pre-Engineering</div>
+                        <div class="edu-year">2021 - 2023</div>
+                    </div>
+                    <div class="edu-school">Government College</div>
+                    <div class="edu-gpa">Grade: A+</div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="section">
+                <h2 class="section-title">TECHNICAL SKILLS</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">C++ (Advanced)</span>
+                            <span class="skill-tag">C Language</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Web Development</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">Canvas API</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Technologies</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Responsive Design</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Core Competencies</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Algorithms</span>
+                            <span class="skill-tag">Data Structures</span>
+                            <span class="skill-tag">OOP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="section">
+                <h2 class="section-title">PROJECTS</h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-name">Maze Runner Game</div>
+                        <div class="project-tech">HTML5, CSS3, JavaScript, Canvas API</div>
+                    </div>
+                    <p class="project-desc">
+                        Interactive browser-based maze game featuring dynamic gameplay and modern UI design.
+                    </p>
+                    <ul class="project-features">
+                        <li>Implemented three difficulty levels (Easy, Medium, Hard) with varying maze complexity</li>
+                        <li>Developed collision detection system with lives tracking (4 hits = game over)</li>
+                        <li>Created random maze generation algorithm for unique gameplay each session</li>
+                        <li>Designed responsive UI with glassmorphism effects and smooth animations</li>
+                        <li>Utilized HTML5 Canvas API for efficient rendering and game mechanics</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-name">Elite Portfolio Website</div>
+                        <div class="project-tech">HTML5, CSS3, JavaScript, Particles.js</div>
+                    </div>
+                    <p class="project-desc">
+                        Professional portfolio website showcasing projects and skills with modern design aesthetics.
+                    </p>
+                    <ul class="project-features">
+                        <li>Designed and developed fully responsive portfolio with custom animations</li>
+                        <li>Implemented interactive particle background and custom cursor effects</li>
+                        <li>Created dynamic project filtering system and modal popups</li>
+                        <li>Optimized for performance and cross-browser compatibility</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-name">C++ System Utilities</div>
+                        <div class="project-tech">C++, Algorithms, Data Structures</div>
+                    </div>
+                    <p class="project-desc">
+                        Collection of high-performance system utilities demonstrating advanced C++ concepts.
+                    </p>
+                    <ul class="project-features">
+                        <li>Developed efficient algorithms for data processing and manipulation</li>
+                        <li>Implemented object-oriented design patterns and best practices</li>
+                        <li>Focused on memory optimization and algorithmic efficiency</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="section">
+                <h2 class="section-title">EXPERIENCE</h2>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Frontend Development Intern</div>
+                        <div class="exp-date">Jun 2024 - Aug 2024</div>
+                    </div>
+                    <div class="exp-company">Tech Solutions Inc.</div>
+                    <p class="exp-desc">
+                        Developed responsive UI components using React and Tailwind CSS. Optimized website performance
+                        by 40%
+                        through code splitting and lazy loading. Collaborated with design team to implement
+                        pixel-perfect interfaces.
+                    </p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Freelance Web Developer</div>
+                        <div class="exp-date">2022 - Present</div>
+                    </div>
+                    <div class="exp-company">Upwork / Remote</div>
+                    <p class="exp-desc">
+                        Delivered 10+ custom websites for international clients. Managed full project lifecycle from
+                        design to deployment.
+                        Maintained 5-star rating through consistent quality delivery and excellent client communication.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="section">
+                <h2 class="section-title">ADDITIONAL INFORMATION</h2>
+                <div class="profile-text">
+                    <strong>Languages:</strong> English (Fluent), Urdu (Native)<br>
+                    <strong>Interests:</strong> Game Development, Algorithm Design, Open Source Contribution, UI/UX
+                    Design<br>
+                    <strong>Certifications:</strong> Currently pursuing advanced courses in Data Structures and
+                    Algorithms
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-download on page load (optional)
+        window.onload = function () {
+            setTimeout(() => window.print(), 500);
+        };
+    </script>
+</body>
+
+</html>
